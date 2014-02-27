@@ -1,0 +1,17 @@
+#!/bin/bash
+
+issue_id=$1
+show_diff=$2
+
+[[ -z $issue_id ]] && { echo "Missing issue parameter"; exit 1; }
+
+if [[ -z $show_diff ]]; then
+  git log --grep="#$issue_id" --oneline
+elif [[ $show_diff == "-p" ]] || [[ $show_diff == "--patch" ]]; then
+  git log --grep="#$issue_id" --pretty=format:"%H" | git show --stdin
+else
+    echo "Uknown parameter '$show_diff'"
+    exit 2
+fi
+
+exit 0
