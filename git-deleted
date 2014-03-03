@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Run `git rm` on files deleted from the filesystem
+
+git ls-files --deleted | while read f; do git rm "$f"; done;
