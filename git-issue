@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Return all commits having <issue_id> in their commit message.
+# Accepts -p/--patch parameter
+
 issue_id=$1
 show_diff=$2
 
