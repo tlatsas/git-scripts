@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Revert the last `git stash apply` command run
+
+git stash show -p --no-color | git apply -R
